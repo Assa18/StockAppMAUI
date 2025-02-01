@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockAppMAUI.Views.ProductPage"
+             xmlns:model="clr-namespace:StockAppMAUI.Models"
+             xmlns:viewmodel="clr-namespace:StockAppMAUI.ViewModels"
+             x:DataType="viewmodel:ProductsViewModel"
+             Title="ProductPage">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Button Text="Load"
+                    Command="{Binding GetProductsCommand}"/>
+            <CollectionView ItemsSource="{Binding Products}"
+                            Margin="3">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Product">
+                        <Border
+                            Padding="5"
+                            BackgroundColor="LightGray">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProductsViewModel}}, x:DataType=viewmodel:ProductsViewModel, Path=GoToDetailsCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout
+                                Padding="5">
+                                <Label Text="{Binding Name}"
+                                       FontSize="Medium"/>
+                                <Label Text="{Binding Description}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

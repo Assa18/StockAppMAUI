@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using StockAppMAUI.ViewModels;
+using StockAppMAUI.Views;
 
 namespace StockAppMAUI
 {
@@ -18,6 +20,11 @@ namespace StockAppMAUI
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddSingleton<ProductsViewModel>();
+
+            builder.Services.AddTransient<ProductDetailViewModel>();
+            builder.Services.AddSingleton<ProductDetailsPage>();
 
             return builder.Build();
         }

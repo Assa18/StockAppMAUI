@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockAppMAUI.Views.ProductDetailsPage"
+             xmlns:viewmodel="clr-namespace:StockAppMAUI.ViewModels"
+             x:DataType="viewmodel:ProductDetailViewModel"
+             Title="{Binding Product.Name}">
+    <ScrollView>
+        <Label Text="Details page"/>
+    </ScrollView>
+</ContentPage>

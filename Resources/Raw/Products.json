@@ -1,0 +1,58 @@
+[
+  {
+    "Name": "Gear 2.5",
+    "Description": "Gear",
+    "SupplyPrice": 20,
+    "SellPrice": 30,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "Gear 1.5",
+    "Description": "Gear",
+    "SupplyPrice": 15,
+    "SellPrice": 25,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "NailA",
+    "Description": "nail ",
+    "SupplyPrice": 3,
+    "SellPrice": 5,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "NailC",
+    "Description": "nail small",
+    "SupplyPrice": 1.5,
+    "SellPrice": 2.1,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "Chain",
+    "Description": "strong chain",
+    "SupplyPrice": 32,
+    "SellPrice": 45,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "laser",
+    "Description": "laser",
+    "SupplyPrice": 12,
+    "SellPrice": 15,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "Flashlight",
+    "Description": "light",
+    "SupplyPrice": 13,
+    "SellPrice": 19,
+    "OnStock": false,
+    "Count": 0
+  }
+]
