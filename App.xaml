@@ -9,6 +9,65 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Color x:Key="AppGreen">#a1cec3</Color>
+            <Color x:Key="AppDarkGray">#535657</Color>
+            <Color x:Key="AppYellow">#faf4d3</Color>
+            <Color x:Key="AppDarkBlue">#9ac4f8</Color>
+            <Color x:Key="AppLightBlue">#d9e9fc</Color>
+
+            <Style ApplyToDerivedTypes="True"
+                   TargetType="Button"
+                   x:Key="FilledButton">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AppGreen}"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+
+            <Style ApplyToDerivedTypes="True" 
+                   TargetType="Button" 
+                   BasedOn="{StaticResource FilledButton}"
+                   x:Key="FramedButton">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="{StaticResource AppGreen}"/>
+            </Style>
+
+            <Style TargetType="Border"
+                   x:Key="ListItemBorder">
+                <Setter Property="Stroke" Value="{StaticResource AppGreen}"/>
+                <Setter Property="StrokeThickness" Value="2"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+
+            <Style TargetType="Border"
+                   x:Key="DetailsHeaderBorder">
+                <Setter Property="Stroke" Value="{StaticResource AppGreen}"/>
+                <Setter Property="StrokeThickness" Value="5"/>
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="PropertyNameLabel">
+                <Setter Property="Margin" Value="20"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="PropertyLabel">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="BoxView"
+                   x:Key="LineBoxView">
+                <Setter Property="HeightRequest" Value="1"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AppGreen}"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

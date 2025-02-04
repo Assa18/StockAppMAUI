@@ -10,14 +10,17 @@
     <ScrollView>
         <VerticalStackLayout>
             <Button Text="Load"
-                    Command="{Binding GetProductsCommand}"/>
+                    Command="{Binding GetProductsCommand}"
+                    Style="{StaticResource FilledButton}"
+                    HorizontalOptions="Center"/>
             <CollectionView ItemsSource="{Binding Products}"
                             Margin="3">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Product">
-                        <Border
-                            Padding="5"
-                            BackgroundColor="LightGray">
+                        <Border Style="{StaticResource ListItemBorder}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5"/>
+                            </Border.StrokeShape>
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProductsViewModel}}, x:DataType=viewmodel:ProductsViewModel, Path=GoToDetailsCommand}"
@@ -27,7 +30,7 @@
                                 Padding="5">
                                 <Label Text="{Binding Name}"
                                        FontSize="Medium"/>
-                                <Label Text="{Binding Description}"/>
+                                <Label Text="{Binding Count}"/>
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
@@ -35,4 +38,5 @@
             </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
+    
 </ContentPage>
