@@ -6,6 +6,27 @@ namespace StockAppMAUI.Service
     class JSONService : AppService
     {
         List<Product> products;
+
+        public Task AddProductAsync(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteProductAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Init()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task InitAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<Product>> LoadProductsAsync()
         {
             using var fileStream = await FileSystem.OpenAppPackageFileAsync("Products.json");

@@ -2,9 +2,14 @@
 {
     class ServiceFactory
     {
+        static AppService instance;
         public static AppService GetService()
         {
-            return new JSONService();
+            if (instance == null)
+            {
+                instance = new DBService();
+            }
+            return instance;
         }
     }
 }

@@ -62,11 +62,24 @@
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
 
+            <Style TargetType="Label"
+                   x:Key="HeaderLabel">
+                <Setter Property="FontSize" Value="28"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
             <Style TargetType="BoxView"
                    x:Key="LineBoxView">
                 <Setter Property="HeightRequest" Value="1"/>
                 <Setter Property="HorizontalOptions" Value="Fill"/>
                 <Setter Property="BackgroundColor" Value="{StaticResource AppGreen}"/>
+            </Style>
+
+            <Style TargetType="Entry"
+                   x:Key="InputEntry">
+                <Setter Property="WidthRequest" Value="150"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockAppMAUI.Views.ProductAddEditPage"
+             xmlns:viewmodel="clr-namespace:StockAppMAUI.ViewModels"
+             x:DataType="viewmodel:ProductDetailViewModel">
+    
+    <VerticalStackLayout Padding="20">
+        <Border Style="{StaticResource DetailsHeaderBorder}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10"/>
+            </Border.StrokeShape>
+            <Label Text="Fill with data"
+                   Style="{StaticResource HeaderLabel}"/>
+        </Border>
+        <Label Text="Enter the name of the product:"
+               Style="{StaticResource PropertyNameLabel}"/>
+        <Entry Text="{Binding Product.Name}"
+                Placeholder="Name"
+                Style="{StaticResource InputEntry}"/>
+        <Label Text="Enter the supply price:"
+               Style="{StaticResource PropertyNameLabel}"/>
+        <Entry Text="{Binding Product.SupplyPrice}"
+                Placeholder="Price"
+                Style="{StaticResource InputEntry}"
+                Keyboard="Numeric"/>
+        <Label Text="Enter the sell price:"
+               Style="{StaticResource PropertyNameLabel}"/>
+        <Entry Text="{Binding Product.SellPrice}"
+                Placeholder="Price"
+                Style="{StaticResource InputEntry}"
+                Keyboard="Numeric"/>
+        <Label Text="Enter extra description:"
+               Style="{StaticResource PropertyNameLabel}"/>
+        <Entry Placeholder="Extra description"
+                Text="{Binding Product.Description}"
+                Style="{StaticResource InputEntry}"
+                MinimumHeightRequest="200"
+                WidthRequest="350"/>
+        <Grid ColumnDefinitions="*, *"
+              Margin="10">
+            <Button Text="Cancel"
+                    Command="{Binding GoBackCommand}"
+                    Style="{StaticResource FilledButton}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"/>
+            <Button Text="Ok"
+                    Command="{Binding AddProductCommand}"
+                    CommandParameter="{Binding Product}"
+                    Style="{StaticResource FilledButton}"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

@@ -52,4 +52,14 @@ public partial class ProductsViewModel : ObservableObject
                 {"Product", product }
             });
     }
+
+    [RelayCommand]
+    async Task GoToAdd()
+    {
+        await Shell.Current.GoToAsync(nameof(ProductAddEditPage), true, 
+            new Dictionary<string, object>
+            {
+                {"Product", new Product() }
+            });
+    }
 }

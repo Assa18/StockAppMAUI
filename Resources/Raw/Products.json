@@ -54,5 +54,53 @@
     "SellPrice": 19,
     "OnStock": false,
     "Count": 0
+  },
+  {
+    "Name": "Flashlight",
+    "Description": "light",
+    "SupplyPrice": 13,
+    "SellPrice": 19,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "Flashlight",
+    "Description": "light",
+    "SupplyPrice": 13,
+    "SellPrice": 19,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "Flashlight",
+    "Description": "light",
+    "SupplyPrice": 13,
+    "SellPrice": 19,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "Flashlight",
+    "Description": "light",
+    "SupplyPrice": 13,
+    "SellPrice": 19,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "Flashlight",
+    "Description": "light",
+    "SupplyPrice": 13,
+    "SellPrice": 19,
+    "OnStock": false,
+    "Count": 0
+  },
+  {
+    "Name": "Flashlight",
+    "Description": "light",
+    "SupplyPrice": 13,
+    "SellPrice": 19,
+    "OnStock": false,
+    "Count": 0
   }
 ]

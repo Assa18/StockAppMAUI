@@ -7,12 +7,24 @@
              x:DataType="viewmodel:ProductsViewModel"
              Title="ProductPage">
 
-    <ScrollView>
-        <VerticalStackLayout>
+    <VerticalStackLayout>
+        <Grid Margin="15"
+              ColumnDefinitions="*, *"
+              RowDefinitions="Auto">
+            <Button Text="Add product"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProductsViewModel}}, x:DataType=viewmodel:ProductsViewModel, Path=GoToAddCommand}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource FilledButton}"/>
             <Button Text="Load"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
                     Command="{Binding GetProductsCommand}"
-                    Style="{StaticResource FilledButton}"
-                    HorizontalOptions="Center"/>
+                    Style="{StaticResource FilledButton}"/>
+        </Grid>
+        <ScrollView>
             <CollectionView ItemsSource="{Binding Products}"
                             Margin="3">
                 <CollectionView.ItemTemplate>
@@ -30,13 +42,13 @@
                                 Padding="5">
                                 <Label Text="{Binding Name}"
                                        FontSize="Medium"/>
-                                <Label Text="{Binding Count}"/>
+                                <Label Text="{Binding ID}"/>
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>
+        </ScrollView>
+    </VerticalStackLayout>
     
 </ContentPage>

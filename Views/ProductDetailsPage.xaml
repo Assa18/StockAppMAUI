@@ -12,11 +12,9 @@
                     <RoundRectangle CornerRadius="10"/>
                 </Border.StrokeShape>
                 <Label Text="{Binding Product.Name}"
-                       HorizontalOptions="Center"
-                       FontAttributes="Bold"
-                       FontSize="28"/>
+                       Style="{StaticResource HeaderLabel}"/>
             </Border>
-            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, *"
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
                   ColumnDefinitions="125, *">
                 <Label Text="SupplyPrice:"
                        Style="{StaticResource PropertyNameLabel}"
@@ -29,15 +27,9 @@
                        VerticalOptions="Center"
                        Grid.Column="1"
                        Grid.Row="0"/>
-                <Button Text="Change Supply-price"
-                        Style="{StaticResource FramedButton}"
-                        HorizontalOptions="Center"
-                        Grid.Column="0"
-                        Grid.Row="1"
-                        Grid.ColumnSpan="2"/>
                 <Label Text="SellPrice:"
                        Style="{StaticResource PropertyNameLabel}"
-                       Grid.Row="2"
+                       Grid.Row="1"
                        Grid.Column="0"
                        Grid.ColumnSpan="2"/>
                 <Label Text="{Binding Product.SellPrice}"
@@ -45,35 +37,30 @@
                        HorizontalOptions="Start"
                        VerticalOptions="Center"
                        Grid.Column="1"
-                       Grid.Row="2"/>
-                <Button Text="Change Sell-price"
-                        Style="{StaticResource FramedButton}"
-                        HorizontalOptions="Center"
-                        Grid.Column="0"
-                        Grid.Row="3"
-                        Grid.ColumnSpan="2"/>
+                       Grid.Row="1"/>
                 <Label Text="Is on stock: "
                        Style="{StaticResource PropertyNameLabel}"
                        VerticalOptions="Center"
                        HorizontalOptions="Start"
-                       Grid.Row="4"
+                       Grid.Row="2"
                        Grid.Column="0"/>
-                <CheckBox IsChecked="{Binding Product.OnStock}"
+                <CheckBox IsChecked="false"
+                          IsEnabled="False"
                           HorizontalOptions="Start"
-                          Grid.Row="4"
+                          Grid.Row="2"
                           Grid.Column="1"
                           Color="#a1cec3"/>
-                <BoxView Grid.Row="5"
+                <BoxView Grid.Row="3"
                          Grid.ColumnSpan="2"
                          Style="{StaticResource LineBoxView}"/>
                 <VerticalStackLayout
-                    Grid.Row="6"
+                    Grid.Row="4"
                     Grid.ColumnSpan="2">
                     <Label Text="Current count on stock:"
                            Style="{StaticResource PropertyNameLabel}"
                            FontSize="20"
                            HorizontalOptions="Center"/>
-                    <Label Text="{Binding Product.Count}"
+                    <Label Text="0"
                            Style="{StaticResource PropertyLabel}"
                            FontSize="26"
                            HorizontalOptions="Center"/>
@@ -86,6 +73,25 @@
                            Margin="20"
                            HorizontalOptions="Center"/>
                 </VerticalStackLayout>
+                <Grid ColumnDefinitions="*, *"
+                      Grid.Row="5"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="2">
+                    <Button Text="Edit"
+                            Command="{Binding GoToEditCommand}"
+                            CommandParameter="{Binding Product}"
+                            Style="{StaticResource FilledButton}"
+                            HorizontalOptions="Center"
+                            Grid.Row="0"
+                            Grid.Column="0"/>
+                    <Button Text="Delete"
+                            Style="{StaticResource FilledButton}"
+                            Command="{Binding DeleteProductCommand}"
+                            CommandParameter="{Binding Product.ID}"
+                            HorizontalOptions="Center"
+                            Grid.Row="0"
+                            Grid.Column="1"/>
+                </Grid>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>

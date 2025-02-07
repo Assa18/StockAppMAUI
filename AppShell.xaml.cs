@@ -9,6 +9,7 @@ namespace StockAppMAUI
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(ProductDetailsPage), typeof(ProductDetailsPage));
+            Routing.RegisterRoute(nameof(ProductAddEditPage), typeof(ProductAddEditPage));
         }
     }
 }
