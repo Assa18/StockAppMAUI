@@ -7,27 +7,6 @@ namespace StockAppMAUI.Service
     {
         private SQLiteAsyncConnection con;
 
-        public async Task AddProductAsync(Product product)
-        {
-            await InitAsync();
-
-            var query = con.Table<Product>().Where(p => p.ID == product.ID);
-
-            if (await query.CountAsync() != 0)
-            {
-                await con.DeleteAsync<Product>(product.ID);
-            }
-
-            await con.InsertAsync(product);
-        }
-
-        public async Task DeleteProductAsync(int id)
-        {
-            await InitAsync();
-
-            await con.DeleteAsync<Product>(id);
-        }
-
         public async Task InitAsync()
         {
             if (con != null)
@@ -38,17 +17,31 @@ namespace StockAppMAUI.Service
             var dataBasePath = Path.Combine(FileSystem.AppDataDirectory, "StockAppData.db");
 
             con = new SQLiteAsyncConnection(dataBasePath);
+
             await con.CreateTableAsync<Product>();
+            await con.CreateTableAsync<Transaction>();
+        }
 
-            //var product = new Product()
-            //{
-            //    Name = "new product",
-            //    SupplyPrice = 10,
-            //    SellPrice = 15,
-            //    Description = "This is a short description!"
-            //};
+        public async Task AddProductAsync(Product product)
+        {
+            await InitAsync();
 
-            //await con.InsertAsync(product);
+            var query = con.Table<Product>().Where(p => p.PID == product.PID);
+
+            if (await query.CountAsync() != 0)
+            { 
+                await con.UpdateAsync(product);
+                return;
+            }
+
+            await con.InsertAsync(product);
+        }
+
+        public async Task DeleteProductAsync(int id)
+        {
+            await InitAsync();
+
+            await con.DeleteAsync<Product>(id);
         }
 
         public async Task<List<Product>> LoadProductsAsync()
@@ -67,6 +60,20 @@ namespace StockAppMAUI.Service
             return result;
         }
 
+        public async Task<List<Transaction>> LoadAllTransactionsAsync()
+        {
+            await InitAsync();
 
+            var query = con.Table<Transaction>();
+
+            var result = await query.ToListAsync();
+
+            if (result == null)
+            {
+                return new List<Transaction>();
+            }
+
+            return result;
+        }
     }
 }

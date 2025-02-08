@@ -48,6 +48,7 @@
                    x:Key="DetailsHeaderBorder">
                 <Setter Property="Stroke" Value="{StaticResource AppGreen}"/>
                 <Setter Property="StrokeThickness" Value="5"/>
+                <Setter Property="Margin" Value="20"/>
             </Style>
 
             <Style TargetType="Label"

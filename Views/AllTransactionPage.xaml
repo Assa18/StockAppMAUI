@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StockAppMAUI.Views.ProductPage"
+             x:Class="StockAppMAUI.Views.AllTransactionPage"
              xmlns:viewmodel="clr-namespace:StockAppMAUI.ViewModels"
              xmlns:model="clr-namespace:StockAppMAUI.Models"
-             x:DataType="viewmodel:ProductsViewModel"
-             Title="Products">
-
+             x:DataType="viewmodel:TransactionViewModel"
+             Title="All transactions">
+    
     <VerticalStackLayout>
         <Grid Margin="15"
-              ColumnDefinitions="*, *"
+              ColumnDefinitions="*,*"
               RowDefinitions="Auto">
-            <Button Text="Add product"
-                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProductsViewModel}}, x:DataType=viewmodel:ProductsViewModel, Path=GoToAddCommand}"
+            <Button Text="New Transaction"
                     Grid.Row="0"
                     Grid.Column="0"
                     HorizontalOptions="Center"
                     Style="{StaticResource FilledButton}"/>
-            <Button Text="Load"
+            <Button Text="Load all"
+                    Command="{Binding GetAllTransactionsCommand}"
                     Grid.Row="0"
                     Grid.Column="1"
                     HorizontalOptions="Center"
-                    Command="{Binding GetProductsCommand}"
                     Style="{StaticResource FilledButton}"/>
         </Grid>
         <ScrollView>
-            <CollectionView ItemsSource="{Binding Products}"
-                            Margin="3">
+            <CollectionView Margin="3"
+                            ItemsSource="{Binding Transactions}">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Product">
-                        <Border Style="{StaticResource ListItemBorder}">
+                    <DataTemplate x:DataType="model:TransactionDisplayModel">
+                        <Border Style="{StaticResource ListItemBorder}"
+                                BackgroundColor="{Binding color}">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="5"/>
                             </Border.StrokeShape>
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProductsViewModel}}, x:DataType=viewmodel:ProductsViewModel, Path=GoToDetailsCommand}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TransactionViewModel}}, x:DataType=viewmodel:TransactionViewModel, Path=GoToDetailsCommand}"
                                     CommandParameter="{Binding .}"/>
                             </Border.GestureRecognizers>
-                            <VerticalStackLayout
-                                Padding="5">
-                                <Label Text="{Binding Name}"
-                                       FontSize="Medium"/>
-                                <Label Text="{Binding PID}"/>
+                            <VerticalStackLayout Padding="5">
+                                <Label Text="{Binding ProductName}"
+                                       Style="{StaticResource PropertyLabel}"/>
+                                <Label Text="{Binding Transaction.Count}"
+                                       Style="{StaticResource PropertyNameLabel}"/>
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
@@ -50,5 +50,4 @@
             </CollectionView>
         </ScrollView>
     </VerticalStackLayout>
-    
 </ContentPage>

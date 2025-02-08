@@ -22,6 +22,7 @@ namespace StockAppMAUI
 #endif
 
             builder.Services.AddSingleton<ProductsViewModel>();
+            builder.Services.AddSingleton<TransactionViewModel>();
 
             builder.Services.AddTransient<ProductDetailViewModel>();
             builder.Services.AddSingleton<ProductDetailsPage>();

@@ -27,6 +27,11 @@ namespace StockAppMAUI.Service
             throw new NotImplementedException();
         }
 
+        public Task<List<Transaction>> LoadAllTransactionsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<Product>> LoadProductsAsync()
         {
             using var fileStream = await FileSystem.OpenAppPackageFileAsync("Products.json");

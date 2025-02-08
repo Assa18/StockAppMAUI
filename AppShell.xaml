@@ -16,4 +16,9 @@
             ContentTemplate="{DataTemplate views:ProductPage}"/>
     </FlyoutItem>
 
+    <FlyoutItem Title="All transactions">
+        <ShellContent
+            ContentTemplate="{DataTemplate views:AllTransactionPage}"/>
+    </FlyoutItem>
+    
 </Shell>

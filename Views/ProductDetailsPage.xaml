@@ -87,7 +87,7 @@
                     <Button Text="Delete"
                             Style="{StaticResource FilledButton}"
                             Command="{Binding DeleteProductCommand}"
-                            CommandParameter="{Binding Product.ID}"
+                            CommandParameter="{Binding Product.PID}"
                             HorizontalOptions="Center"
                             Grid.Row="0"
                             Grid.Column="1"/>
